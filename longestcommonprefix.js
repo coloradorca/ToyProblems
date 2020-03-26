@@ -15,6 +15,27 @@
 
 // All given inputs are in lowercase letters a-z.
 
-var longestCommonPrefix = function(strs) {};
+var longestCommonPrefix = function(strs) {
+  if (strs.length === 0) {
+    return '';
+  }
+  var result = '';
+  var k = 0;
+  while (true) {
+    for (var i = 0; i < strs.length; i++) {
+      if (!result[k]) {
+        result += strs[i][k];
+      }
+      if (strs[i][k] !== result[k]) {
+        return result.slice(0, k);
+      }
+      if (k === strs[i].length) {
+        break;
+      }
+    }
+    k++;
+  }
+  return result;
+};
 
-console.log(longestCommonPrefix(['flower', 'flow', 'flight']));
+console.log(longestCommonPrefix(['flower', 'flow', 'flower']));
