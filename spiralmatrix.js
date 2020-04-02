@@ -21,6 +21,8 @@ var Input = [
 ];
 // Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
+//the time and space complexity are both O(n)
+
 var spiralOrder = function(matrix) {
   //edge case if the matrix is empty
   if (matrix.length === 0) return [];
