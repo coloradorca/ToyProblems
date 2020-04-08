@@ -36,10 +36,10 @@
 // add 1 to the sum for each element in the array  where that (element + 1)'s value is included in the set
 
 var countElements = function (arr) {
-  let hash = new Set(arr),
+  let originals = new Set(arr),
     sum = 0;
   arr.forEach((el) => {
-    if (hash.has(el + 1)) {
+    if (originals.has(el + 1)) {
       sum++;
     }
   });
