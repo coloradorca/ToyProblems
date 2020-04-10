@@ -1,4 +1,4 @@
-//Leetcode problem #10 of April 30day challenge (https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/529/week-2/3292/)
+//Leetcode problem #10 of April 30day challenge (https://leetcode.com/problems/min-stack/)
 
 // Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
 
@@ -18,12 +18,22 @@
 // minStack.top();      --> Returns 0.
 // minStack.getMin();   --> Returns -2.
 
-//prototypical class(stack) instantiation
+//both prototypical and pseudoclassical share the same methods and instantiation pattern
+
+//prototypical class (stack) instantiation
+//metrics from leetcode => Runtime: 148 ms (faster than 32%), Memory: 43.8 MB
+
+// var MinStack = function () {
+//   var obj = Object.create(MinStack.prototype);
+//   obj.stack = [];
+//   return obj;
+// };
+
+//pseudoclassical class instantiation
+//metrics from leetcode => Runtime: 156 ms (faster than 28%), Memory: 44.1 MB ( less than 75%)
 
 var MinStack = function () {
-  var obj = Object.create(MinStack.prototype);
-  obj.stack = [];
-  return obj;
+  this.stack = [];
 };
 
 MinStack.prototype.push = function (x) {
@@ -49,14 +59,45 @@ MinStack.prototype.getMin = function () {
 };
 
 var obj = new MinStack();
-// console.log(obj);
 obj.push(-2);
 obj.push(0);
 obj.push(-3);
-// obj.getMin();
 obj.pop();
 obj.top();
-// console.log(obj.top());
+console.log(obj.top());
 console.log(obj.getMin());
-var param_3 = obj.top();
-var param_4 = obj.getMin();
+
+//functional class instantiation
+//metrics from leetcode => Runtime: 164 ms (faster than 26%), Memory: 44.2 MB
+
+// var MinStack = function () {
+//   var obj = {};
+//   obj.stack = [];
+
+//   obj.push = function (x) {
+//     this.stack.push(x);
+//   };
+
+//   obj.pop = function () {
+//     this.stack.pop();
+//   };
+
+//   obj.top = function () {
+//     return this.stack[this.stack.length - 1];
+//   };
+
+//   obj.getMin = function () {
+//     let min = this.stack[0];
+//     for (let i = 0; i < this.stack.length; i++) {
+//       if (this.stack[i] < min) {
+//         min = this.stack[i];
+//       }
+//     }
+//     return min;
+//   };
+
+//   return obj;
+// };
+
+//functional pattern is instantiated without using the 'new' keyword
+// var obj = MinStack();
