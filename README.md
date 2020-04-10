@@ -1,6 +1,6 @@
 # ToyProblems
 
-Daily Toy Problems to keep fresh with Algorithms and JS
+Daily Toy Problems to keep fresh with DS, Algorithms and JavaScript
 
 ## Running Tests
 
