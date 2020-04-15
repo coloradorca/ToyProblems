@@ -18,9 +18,7 @@
 
 // Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
 
-//first solution
-
-var romanToInt = function(s) {
+var romanToInt = function (s) {
   let numerals = {
     I: 1,
     V: 5,
