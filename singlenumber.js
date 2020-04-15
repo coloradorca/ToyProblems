@@ -17,8 +17,7 @@
 
 //both time and space complexity are O(n)
 
-var singleNumber = function(nums) {
-  //
+var singleNumber = function (nums) {
   var hash = {};
   for (var i = 0; i < nums.length; i++) {
     if (!hash[nums[i]]) {
