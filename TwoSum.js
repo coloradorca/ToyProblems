@@ -20,7 +20,6 @@
 //     }
 //   }
 // };
-// console.log(twoSum([2, 7, 11, 15], 13));
 
 //Second Solution with O(n)
 
