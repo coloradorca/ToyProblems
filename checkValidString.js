@@ -20,6 +20,33 @@
 // Note:
 // The string size will be in the range [1, 100].
 
-var checkValidString = function (s) {};
+//strategy
+//make a stack that pushes and pops dependant on opening or closing parens
+//keep track of the stars, left and right parens
+// if there are more right parens than stars or left, return false
 
-console.log(checkValidString('(*))'));
+const checkValidString = (s) => {
+  let left = 0,
+    right = 0,
+    stars = 0,
+    stack = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') {
+      left++;
+      stack.push('(');
+    } else if (s[i] === ')') {
+      right++;
+      //if there are more right parens than left or stars at any point, return false
+      if (right > stars + left) {
+        return false;
+      }
+      stack.pop();
+    } else if (s[i] === '*') {
+      stars++;
+      stack.pop();
+    }
+  }
+  return stack.length === 0 ? true : false;
+};
+
+console.log(checkValidString('(*)))()'));
