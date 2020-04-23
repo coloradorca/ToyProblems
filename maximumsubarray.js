@@ -14,7 +14,7 @@
 
 //iterate over array
 
-//get the current max by using Math.max between 0 and  the current max + each index
+//get the current max by using Math.max between 0 and the current max + each index
 //get the maxUntil by adding the currMax to maxUntil
 
 //return the highest sum
@@ -23,7 +23,7 @@
 
 // (the commented code are edge cases which pass LeetCode's tests)
 
-var maxSubArray = function(nums) {
+var maxSubArray = function (nums) {
   let allNegs = nums.every((n) => n < 0),
     currMax = 0,
     maxSum = Number.NEGATIVE_INFINITY;
