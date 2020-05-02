@@ -16,10 +16,21 @@
 // S and J will consist of letters and have length at most 50.
 // The characters in J are distinct.
 
+//Harder to read, ES6 spread and forEach
+var numJewelsInStones = function (J, S) {
+  let count = 0;
+  [...S].forEach((e) => {
+    if (J.includes(e)) {
+      count++;
+    }
+  });
+  return count;
+};
+
+//using Set
 var numJewelsInStones = function (J, S) {
   let count = 0;
   let jewels = new Set(J);
-  console.log(jewels);
   for (var stones = 0; stones < S.length; stones++) {
     if (jewels.has(S[stones])) {
       count++;
