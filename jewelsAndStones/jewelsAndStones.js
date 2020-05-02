@@ -17,15 +17,15 @@
 // The characters in J are distinct.
 
 var numJewelsInStones = function (J, S) {
-  let result = 0;
+  let count = 0;
+  let jewels = new Set(J);
+  console.log(jewels);
   for (var stones = 0; stones < S.length; stones++) {
-    for (var jewels = 0; jewels < J.length; jewels++) {
-      if (J[jewels] === S[stones]) {
-        result++;
-      }
+    if (jewels.has(S[stones])) {
+      count++;
     }
   }
-  return result;
+  return count;
 };
 
 console.log(numJewelsInStones('aA', 'aAAbbbb'));

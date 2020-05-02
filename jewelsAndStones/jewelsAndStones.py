@@ -32,10 +32,10 @@ class Solution:
             the number of jewels in the stones string
         '''
         count = 0
+        jewels = set(J)
         for stones in S:
-            for jewels in J:
-                if stones == jewels:
-                    count += 1
+            if stones in jewels:
+                count += 1
         return count
 
 
