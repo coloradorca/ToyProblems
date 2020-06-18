@@ -23,6 +23,7 @@
 // Output: 0
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
+
 var maxProfit = function (prices) {
   let  profit = 0, maxPrice = prices[0], minPrice = prices[0];
   for (var i = 0; i < prices.length; i++) {
@@ -36,6 +37,16 @@ var maxProfit = function (prices) {
     profit = Math.max(maxPrice - minPrice, profit)
   }
   return prices.length ? profit : 0;
+};
+
+//more concise code
+var maxProfit = function (prices) {
+  let  maximumUntil = 0, currentMax = 0
+  for (var i = 1; i < prices.length; i++) {
+    currentMax = Math.max(0, currentMax += prices[i] - prices[ i - 1] )
+    maximumUntil = Math.max( currentMax, maximumUntil)
+  }
+  return maximumUntil;
 };
 
 console.log(maxProfit([2,4,1]));
