@@ -24,13 +24,18 @@
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 var maxProfit = function (prices) {
-  let maxprofit = 0;
-  for (var i = 1; i < prices.length; i++) {
-    if (prices[i] > prices[i - 1]) {
-      maxprofit += prices[i] - prices[i - 1];
+  let  profit = 0, maxPrice = prices[0], minPrice = prices[0];
+  for (var i = 0; i < prices.length; i++) {
+    if(prices[i] < minPrice){
+      minPrice = prices[i]
+      maxPrice = 0;
     }
+    if(prices[i] > maxPrice){
+      maxPrice = prices[i]
+    }
+    profit = Math.max(maxPrice - minPrice, profit)
   }
-  return maxprofit;
+  return prices.length ? profit : 0;
 };
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+console.log(maxProfit([2,4,1]));
